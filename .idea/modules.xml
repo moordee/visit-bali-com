@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/projek1_angel_chika_davina_scientia.iml" filepath="$PROJECT_DIR$/projek1_angel_chika_davina_scientia.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/projek1_angel_chika_davina_scientia_android.iml" filepath="$PROJECT_DIR$/android/projek1_angel_chika_davina_scientia_android.iml" />
+    </modules>
+  </component>
+</project>
