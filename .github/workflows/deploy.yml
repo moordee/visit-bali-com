@@ -1,0 +1,32 @@
+name: Deploy Flutter Web to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.8.1' 
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Build Flutter Web App
+        run: flutter build web --release
+      - name: Deploy to GitHub Pages
+        run: |
+          git config --global user.name "moordee"
+          git config --global user.email "srsshashina@gmail.com"
+          git checkout --orphan gh-pages
+          git reset --hard
+          cp -R build/web/* .
+          git add .
+          git commit -m "Deploy Flutter web app"
+          git push -f origin gh-pages
