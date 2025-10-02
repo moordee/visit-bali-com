@@ -11,18 +11,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.32.7' 
+      
       - name: Install dependencies
         run: flutter pub get
+
       - name: Build Flutter Web App
         run: flutter build web --release
+
       - name: Deploy to GitHub Pages
         env:
-          GH_TOKEN: ${{ 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 }}
+          GH_TOKEN: ${{ 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 }}  
         run: |
           git config --global user.name "moordee"
           git config --global user.email "srsshashina@gmail.com"
