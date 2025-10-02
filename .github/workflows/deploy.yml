@@ -21,6 +21,8 @@ jobs:
       - name: Build Flutter Web App
         run: flutter build web --release
       - name: Deploy to GitHub Pages
+        env:
+          GITHUB_TOKEN: ${{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}}
         run: |
           git config --global user.name "moordee"
           git config --global user.email "srsshashina@gmail.com"
