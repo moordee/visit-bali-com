@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - master
 
 jobs:
   build:
@@ -12,12 +13,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-        
+
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.32.7' 
-      
+          flutter-version: '3.32.7'
+
       - name: Install dependencies
         run: flutter pub get
 
@@ -26,7 +27,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         env:
-          GH_TOKEN: ${{ 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 }}  
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}  
         run: |
           git config --global user.name "moordee"
           git config --global user.email "srsshashina@gmail.com"
@@ -35,4 +36,4 @@ jobs:
           cp -R build/web/* .
           git add .
           git commit -m "Deploy Flutter web app"
-          git push -f https://x-access-token:${{ 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 }}@github.com/moordee/visit-bali-com.git gh-pages
+          git push -f https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/moordee/visit-bali-com.git gh-pages
